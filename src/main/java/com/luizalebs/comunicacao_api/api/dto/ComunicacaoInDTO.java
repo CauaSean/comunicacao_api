@@ -3,7 +3,7 @@ package com.luizalebs.comunicacao_api.api.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
-import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
+import com.luizalebs.comunicacao_api.infraestructure.enums.StatusNotificacaoEnum;
 import lombok.*;
 
 import java.io.Serializable;
@@ -25,6 +25,6 @@ public class    ComunicacaoInDTO implements Serializable {
     private String mensagem;
     private ModoEnvioEnum modoDeEnvio;
     @JsonIgnore
-    private StatusEnvioEnum statusEnvio;
+    private StatusNotificacaoEnum statusEnvio;
 
 }

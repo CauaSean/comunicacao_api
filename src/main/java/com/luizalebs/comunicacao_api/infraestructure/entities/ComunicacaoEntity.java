@@ -1,10 +1,10 @@
 package com.luizalebs.comunicacao_api.infraestructure.entities;
 
-import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
-import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
-import lombok.*;
 
-import javax.persistence.*;
+import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
+import com.luizalebs.comunicacao_api.infraestructure.enums.StatusNotificacaoEnum;
+import jakarta.persistence.*;
+import lombok.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -43,6 +43,6 @@ public class ComunicacaoEntity implements Serializable {
 
     @Column(name = "STATUS_ENVIO")
     @Enumerated(EnumType.STRING)
-    private StatusEnvioEnum statusEnvio;
+    private StatusNotificacaoEnum statusEnvio;
 
 }

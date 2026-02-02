@@ -1,0 +1,15 @@
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/api/dto/TarefasDTO.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/entities/ComunicacaoEntity.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/repositories/ComunicacaoRepository.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/business/service/ComunicacaoService.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/client/notificacaoClient.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/enums/ModoEnvioEnum.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/api/dto/ComunicacaoInDTO.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/api/controller/GlobalExceptionHandler.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/business/service/EmailService.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/exceptions/EmailException.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/ComunicacaoApiApplication.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/infraestructure/enums/StatusNotificacaoEnum.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/business/mapper/ComunicacaoConverter.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/api/controller/ComunicacaoController.java
+/home/caua/APIs/comunicacao_api/src/main/java/com/luizalebs/comunicacao_api/api/dto/ComunicacaoOutDTO.java
