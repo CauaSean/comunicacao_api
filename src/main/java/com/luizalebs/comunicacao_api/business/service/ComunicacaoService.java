@@ -2,12 +2,13 @@ package com.luizalebs.comunicacao_api.business.service;
 
 import com.luizalebs.comunicacao_api.api.dto.ComunicacaoInDTO;
 import com.luizalebs.comunicacao_api.api.dto.ComunicacaoOutDTO;
-import com.luizalebs.comunicacao_api.business.converter.ComunicacaoConverter;
+import com.luizalebs.comunicacao_api.business.mapper.ComunicacaoConverter;
 import com.luizalebs.comunicacao_api.infraestructure.entities.ComunicacaoEntity;
-import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
+import com.luizalebs.comunicacao_api.infraestructure.enums.StatusNotificacaoEnum;
 import com.luizalebs.comunicacao_api.infraestructure.repositories.ComunicacaoRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Service
@@ -23,31 +24,32 @@ public class ComunicacaoService {
 
     public ComunicacaoOutDTO agendarComunicacao(ComunicacaoInDTO dto) {
         if (Objects.isNull(dto)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
-        dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
-        ComunicacaoEntity entity = converter.paraEntity(dto);
+        dto.setStatusEnvio(StatusNotificacaoEnum.PENDENTE);
+        ComunicacaoEntity entity = converter.paraComunicacaoEntity(dto);
+        entity.setDataHoraenvio(LocalDateTime.now());
         repository.save(entity);
-        ComunicacaoOutDTO outDTO = converter.paraDTO(entity);
+        ComunicacaoOutDTO outDTO = converter.paraComunicacaoDTO(entity);
         return outDTO;
     }
 
     public ComunicacaoOutDTO buscarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
-        return converter.paraDTO(entity);
+        return converter.paraComunicacaoDTO(entity);
     }
 
     public ComunicacaoOutDTO alterarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
-        entity.setStatusEnvio(StatusEnvioEnum.CANCELADO);
+        entity.setStatusEnvio(StatusNotificacaoEnum.CANCELADO);
         repository.save(entity);
-        return (converter.paraDTO(entity));
+        return (converter.paraComunicacaoDTO(entity));
     }
 
 }
