@@ -8,6 +8,7 @@ import com.luizalebs.comunicacao_api.infraestructure.enums.StatusNotificacaoEnum
 import com.luizalebs.comunicacao_api.infraestructure.repositories.ComunicacaoRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Service
@@ -23,10 +24,11 @@ public class ComunicacaoService {
 
     public ComunicacaoOutDTO agendarComunicacao(ComunicacaoInDTO dto) {
         if (Objects.isNull(dto)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
         dto.setStatusEnvio(StatusNotificacaoEnum.PENDENTE);
         ComunicacaoEntity entity = converter.paraComunicacaoEntity(dto);
+        entity.setDataHoraenvio(LocalDateTime.now());
         repository.save(entity);
         ComunicacaoOutDTO outDTO = converter.paraComunicacaoDTO(entity);
         return outDTO;
@@ -35,7 +37,7 @@ public class ComunicacaoService {
     public ComunicacaoOutDTO buscarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
         return converter.paraComunicacaoDTO(entity);
     }
@@ -43,7 +45,7 @@ public class ComunicacaoService {
     public ComunicacaoOutDTO alterarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
         entity.setStatusEnvio(StatusNotificacaoEnum.CANCELADO);
         repository.save(entity);
