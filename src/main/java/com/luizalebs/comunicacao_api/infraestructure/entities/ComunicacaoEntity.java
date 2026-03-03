@@ -1,6 +1,7 @@
 package com.luizalebs.comunicacao_api.infraestructure.entities;
 
 
+import com.luizalebs.comunicacao_api.api.dto.ComunicacaoInDTO;
 import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
 import com.luizalebs.comunicacao_api.infraestructure.enums.StatusNotificacaoEnum;
 import jakarta.persistence.*;
@@ -45,4 +46,6 @@ public class ComunicacaoEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private StatusNotificacaoEnum statusEnvio;
 
+    public ComunicacaoEntity(ComunicacaoInDTO data) {
+    }
 }
